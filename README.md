@@ -1,30 +1,196 @@
-# Implementation-of-Logistic-Regression-Model-to-Predict-the-Placement-Status-of-Student
-
+## Implementation-of-Logistic-Regression-Model-to-Predict-the-Placement-Status-of-Student
 ## AIM:
-To write a program to implement the the Logistic Regression Model to Predict the Placement Status of Student.
+
+To write a program to implement the Logistic Regression Model to predict the placement status of students.
 
 ## Equipments Required:
-1. Hardware – PCs
-2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
-## Algorithm
-1. 
-2. 
-3. 
-4. 
+Hardware – PCs
+
+Anaconda – Python 3.7 Installation / Jupyter Notebook
+
+## Algorithm:
+
+Import the required libraries such as Pandas, Scikit-learn, and Logistic Regression model.
+
+Load the dataset and perform preprocessing (drop unnecessary columns, handle missing values, and encode categorical data).
+
+Split the dataset into features (X) and target (Y), then divide it into training and testing sets.
+
+Train the Logistic Regression model using the training dataset.
+
+Predict the placement status using the test dataset.
+
+Evaluate the model using Accuracy Score, Confusion Matrix, and Classification Report.
+
+Perform a custom prediction to check placement status with given input data.
 
 ## Program:
 ```
-/*
-Program to implement the the Logistic Regression Model to Predict the Placement Status of Student.
-Developed by: 
-RegisterNumber:  
-*/
+'''
+Program to implement the Logistic Regression Model to Predict the Placement Status of Student.
+Developed by: <Your Name>
+RegisterNumber: <Your Register Number>
+'''
+
+# ==============================
+# 1. Import Libraries
+# ==============================
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+
+
+# ==============================
+# 2. Load the Dataset
+# ==============================
+data = pd.read_csv("Placement_Data.csv")
+print("Original Data (First 5 Rows):")
+print(data.head(), '\n')
+
+
+# ==============================
+# 3. Data Cleaning
+# ==============================
+data1 = data.copy()
+data1 = data1.drop(["sl_no", "salary"], axis=1)  # Dropping unnecessary columns
+print("Data After Dropping 'sl_no' and 'salary':")
+print(data1.head(), '\n')
+
+print("Missing Values in Each Column:")
+print(data1.isnull().sum(), '\n')
+
+print("Number of Duplicate Rows:")
+print(data1.duplicated().sum(), '\n')
+
+
+# ==============================
+# 4. Encoding Categorical Variables
+# ==============================
+le = LabelEncoder()
+data1["gender"] = le.fit_transform(data1["gender"])
+data1["ssc_b"] = le.fit_transform(data1["ssc_b"])
+data1["hsc_b"] = le.fit_transform(data1["hsc_b"])
+data1["hsc_s"] = le.fit_transform(data1["hsc_s"])
+data1["degree_t"] = le.fit_transform(data1["degree_t"])
+data1["workex"] = le.fit_transform(data1["workex"])
+data1["specialisation"] = le.fit_transform(data1["specialisation"])
+data1["status"] = le.fit_transform(data1["status"])
+
+print("Data After Label Encoding:")
+print(data1.head(), '\n')
+
+
+# ==============================
+# 5. Feature Selection
+# ==============================
+x = data1.iloc[:, :-1]   # Independent variables
+y = data1["status"]      # Target variable
+
+print("Features (X):")
+print(x.head(), '\n')
+
+print("Target (Y):")
+print(y.head(), '\n')
+
+
+# ==============================
+# 6. Train-Test Split
+# ==============================
+x_train, x_test, y_train, y_test = train_test_split(
+    x, y, test_size=0.2, random_state=0
+)
+
+
+# ==============================
+# 7. Model Training
+# ==============================
+lr = LogisticRegression(solver="liblinear")
+lr.fit(x_train, y_train)
+
+
+# ==============================
+# 8. Model Prediction
+# ==============================
+y_pred = lr.predict(x_test)
+print("Predicted Values:")
+print(y_pred, '\n')
+
+
+# ==============================
+# 9. Model Evaluation
+# ==============================
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy Score:", accuracy, '\n')
+
+confusion = confusion_matrix(y_test, y_pred)
+print("Confusion Matrix:")
+print(confusion, '\n')
+
+classification_report1 = classification_report(y_test, y_pred)
+print("Classification Report:")
+print(classification_report1)
+
+
+# ==============================
+# 10. Custom Prediction
+# ==============================
+# Example input: [gender, ssc_p, ssc_b, hsc_p, hsc_b, hsc_s, degree_p, degree_t, workex, etest_p, specialisation, mba_p]
+custom_input = [[1, 80, 1, 90, 1, 1, 90, 1, 0, 85, 1, 85]]
+prediction = lr.predict(custom_input)
+print("Custom Prediction (Placement Status):", prediction)
 ```
-
 ## Output:
-![the Logistic Regression Model to Predict the Placement Status of Student](sam.png)
+1. Original Data (First 5 Rows)
 
+(Paste screenshot of print(data.head()))
 
-## Result:
-Thus the program to implement the the Logistic Regression Model to Predict the Placement Status of Student is written and verified using python programming.
+2. Data After Dropping 'sl_no' and 'salary'
+
+(Paste screenshot of print(data1.head()) after dropping columns)
+
+3. Missing Values in Each Column
+
+(Paste screenshot of print(data1.isnull().sum()))
+
+4. Number of Duplicate Rows
+
+(Paste screenshot of print(data1.duplicated().sum()))
+
+5. Data After Label Encoding
+
+(Paste screenshot of print(data1.head()) after encoding)
+
+6. Features (X)
+
+(Paste screenshot of print(x.head()))
+
+7. Target (Y)
+
+(Paste screenshot of print(y.head()))
+
+8. Predicted Values (Y_pred)
+
+(Paste screenshot of print(y_pred))
+
+9. Accuracy Score
+
+(Paste screenshot of print(accuracy))
+
+10. Confusion Matrix
+
+(Paste screenshot of print(confusion))
+
+11. Classification Report
+
+(Paste screenshot of print(classification_report1))
+
+12. Custom Prediction (Placement Status)
+
+(Paste screenshot of print(prediction))
+
+Result:
+
+Thus the program to implement the Logistic Regression Model to predict the placement status of students is written and verified using Python programming.
