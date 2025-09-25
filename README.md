@@ -29,8 +29,9 @@ Perform a custom prediction to check placement status with given input data.
 ```
 '''
 Program to implement the Logistic Regression Model to Predict the Placement Status of Student.
-Developed by: <Your Name>
-RegisterNumber: <Your Register Number>
+Developed by: SUDHARSAN S
+RegisterNumber: 212224040334
+
 '''
 
 # ==============================
@@ -145,52 +146,52 @@ print("Custom Prediction (Placement Status):", prediction)
 ## Output:
 1. Original Data (First 5 Rows)
 
-(Paste screenshot of print(data.head()))
+![alt text](<1.png>)
 
 2. Data After Dropping 'sl_no' and 'salary'
 
-(Paste screenshot of print(data1.head()) after dropping columns)
+![alt text](2.png)
 
 3. Missing Values in Each Column
 
-(Paste screenshot of print(data1.isnull().sum()))
+![alt text](3.png)
 
 4. Number of Duplicate Rows
 
-(Paste screenshot of print(data1.duplicated().sum()))
+![alt text](4.png)
 
 5. Data After Label Encoding
 
-(Paste screenshot of print(data1.head()) after encoding)
+![alt text](5.png)
 
 6. Features (X)
 
-(Paste screenshot of print(x.head()))
+![alt text](<Screenshot 2025-09-24 113558.png>)
 
 7. Target (Y)
 
-(Paste screenshot of print(y.head()))
+![alt text](<Screenshot 2025-09-24 113606.png>) 
+
 
 8. Predicted Values (Y_pred)
 
-(Paste screenshot of print(y_pred))
+![alt text](<Screenshot 2025-09-24 113715.png>)
 
 9. Accuracy Score
 
-(Paste screenshot of print(accuracy))
+![alt text](<Screenshot 2025-09-24 113726.png>)
 
 10. Confusion Matrix
 
-(Paste screenshot of print(confusion))
+![alt text](<Screenshot 2025-09-24 113732.png>)
 
 11. Classification Report
 
-(Paste screenshot of print(classification_report1))
+![alt text](<Screenshot 2025-09-24 113800.png>)
 
 12. Custom Prediction (Placement Status)
 
-(Paste screenshot of print(prediction))
-
-Result:
+![alt text](<Screenshot 2025-09-24 113812.png>)
+## Result:
 
 Thus the program to implement the Logistic Regression Model to predict the placement status of students is written and verified using Python programming.
